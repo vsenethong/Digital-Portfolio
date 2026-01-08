@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '4.0.1'
+    id 'org.springframework.boot' version '3.3.5'
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -14,33 +14,42 @@ java {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
+// Configuration for DevTools
 configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
     compileOnly {
         extendsFrom annotationProcessor
     }
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
+    // Spring Boot Starters
+    implementation 'org.springframework.boot:spring-boot-starter-web'       // MVC + REST
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'   // reactive / WebClient
     implementation 'org.springframework.boot:spring-boot-starter-graphql'
-    implementation 'org.springframework.boot:spring-boot-starter-restclient'
-    implementation 'org.springframework.boot:spring-boot-starter-webclient'
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // DevTools for hot reload
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    // Annotation processor
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    testImplementation 'org.springframework.boot:spring-boot-starter-graphql-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-restclient-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-webclient-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-webflux-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test' // includes JUnit Jupiter, Spring Test, MockMvc
+    testImplementation 'org.junit.platform:junit-platform-launcher'          // ensures Gradle can run JUnit 5
+
 }
 
+
+// Use JUnit Platform for tests
 tasks.named('test') {
     useJUnitPlatform()
 }
