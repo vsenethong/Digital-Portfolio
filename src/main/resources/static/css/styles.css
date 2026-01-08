@@ -1,0 +1,284 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+/* Section Animations */
+.section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* Sidebar Animations */
+.sidebar {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Carousel 3D Effects */
+.carousel-container {
+  perspective: 1200px;
+  position: relative;
+}
+
+.carousel-item {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.5s ease,
+              filter 0.5s ease;
+  pointer-events: none;
+}
+
+.carousel-item.active {
+  transform: scale(1) translateZ(0) translateX(0);
+  opacity: 1;
+  z-index: 10;
+  filter: blur(0px);
+  pointer-events: auto;
+}
+
+.carousel-item.prev {
+  transform: scale(0.85) translateX(-40%) rotateY(15deg) translateZ(-100px);
+  opacity: 0.6;
+  z-index: 5;
+  filter: blur(2px);
+}
+
+.carousel-item.next {
+  transform: scale(0.85) translateX(40%) rotateY(-15deg) translateZ(-100px);
+  opacity: 0.6;
+  z-index: 5;
+  filter: blur(2px);
+}
+
+.carousel-item.hidden {
+  opacity: 0;
+  transform: scale(0.7) translateZ(-200px);
+  z-index: 0;
+  filter: blur(4px);
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.fade-in-up.animated {
+  opacity: 1;
+}
+
+/* Menu Icon Animations */
+.menu-icon {
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.menu-icon:active {
+  transform: scale(0.95);
+}
+
+/* Navigation Link Hover Effects */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(139, 92, 246, 0.2);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.nav-link:hover {
+  transform: translateX(5px);
+}
+
+/* Button Hover Effects */
+.scroll-btn,
+.carousel-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-btn:hover,
+.carousel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-btn:active,
+.carousel-btn:active {
+  transform: translateY(0);
+}
+
+/* Skill Badge Animations */
+.skill-badge {
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-badge:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(99, 102, 241, 0.4);
+}
+
+/* Theme Toggle Animation */
+#themeToggle {
+  position: relative;
+  overflow: hidden;
+}
+
+#themeToggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(139, 92, 246, 0.4);
+}
+
+#themeIcon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+#themeToggle:hover #themeIcon {
+  transform: rotate(20deg) scale(1.1);
+}
+
+/* Smooth Scrollbar */
+.scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.6);
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.8);
+}
+
+/* View Transition API */
+@view-transition {
+  navigation: auto;
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Image Container Hover Effect */
+.about-image-container {
+  transition: transform 0.3s ease;
+}
+
+.about-image-container:hover {
+  transform: scale(1.02);
+}
+
+.about-image-container svg {
+  transition: filter 0.3s ease;
+}
+
+.about-image-container:hover svg {
+  filter: brightness(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80vw;
+  }
+
+  .carousel-item {
+    width: 90vw !important;
+    height: 60vh !important;
+  }
+}
+
+/* Stagger Animation for Multiple Elements */
+.fade-in-up:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-up:nth-child(3) { animation-delay: 0.3s; }
+.fade-in-up:nth-child(4) { animation-delay: 0.4s; }
