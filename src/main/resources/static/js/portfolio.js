@@ -6,9 +6,9 @@ const defaultConfig = {
   secondary_action_color: "#6366f1",
   font_family: "system-ui",
   font_size: 16,
-  site_title: "Your Name",
+  site_title: "Vanessa Senethong",
   tagline: "Creative Designer & Developer",
-  about_heading: "About Me",
+  about_heading: "Hi, I'm Vanessa Senethong.",
   about_text: "I'm a passionate creative professional with expertise in design and development. I love bringing ideas to life through innovative digital experiences that engage and inspire.",
   projects_heading: "My Projects"
 };
@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeSidebar();
   initializeTheme();
   initializeScrollEffects();
+  initializeTypingEffect();
   applyConfig(defaultConfig);
 });
 
@@ -130,18 +131,43 @@ document.getElementById('closeSidebar')?.addEventListener('click', (e) => {
 // Close sidebar when clicking navigation links
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', (e) => {
-    toggleSidebar();
+    const targetId = link.getAttribute('href');
 
     // Smooth scroll to section
-    const targetId = link.getAttribute('href');
-    if (targetId.startsWith('#')) {
+    if (targetId && targetId.startsWith('#')) {
       e.preventDefault();
-      const targetSection = document.querySelector(targetId);
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Close sidebar first
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar.classList.contains('open')) {
+        toggleSidebar();
       }
+
+      // Wait for sidebar to close, then scroll
+      setTimeout(() => {
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 300);
     }
   });
+});
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  if (!anchor.classList.contains('nav-link')) {
+    anchor.addEventListener('click', (e) => {
+      const targetId = anchor.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        e.preventDefault();
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  }
 });
 
 // Close sidebar when clicking outside
@@ -283,7 +309,11 @@ function applyConfig(config) {
   // About section
   const aboutHeading = document.getElementById('about-heading');
   if (aboutHeading) {
-    aboutHeading.textContent = config.about_heading || defaultConfig.about_heading;
+    // Only update if it's not the typing text
+    const storedText = aboutHeading.getAttribute('data-text');
+    if (!storedText) {
+      aboutHeading.textContent = config.about_heading || defaultConfig.about_heading;
+    }
     aboutHeading.style.fontSize = `${baseSize * 3.125}px`;
     aboutHeading.style.color = config.text_color || defaultConfig.text_color;
     aboutHeading.style.fontFamily = `${customFont}, ${baseFontStack}`;
@@ -319,6 +349,61 @@ function applyConfig(config) {
     btn.style.color = '#ffffff';
     btn.style.fontFamily = `${customFont}, ${baseFontStack}`;
   });
+}
+
+// Typing Effect for About Heading
+function initializeTypingEffect() {
+  const aboutHeading = document.getElementById('about-heading');
+  if (!aboutHeading) return;
+
+  const fullText = aboutHeading.textContent;
+  let hasTyped = false;
+
+  // Store original text and clear it
+  aboutHeading.setAttribute('data-text', fullText);
+  aboutHeading.textContent = '';
+
+  const observerOptions = {
+    root: null,
+    threshold: 0.3,
+    rootMargin: '0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasTyped) {
+        hasTyped = true;
+        typeText(aboutHeading, fullText);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const aboutSection = document.getElementById('about');
+  if (aboutSection) {
+    observer.observe(aboutSection);
+  }
+}
+
+function typeText(element, text, speed = 80) {
+  let index = 0;
+
+  // Add cursor
+  element.classList.add('typing');
+
+  const typeInterval = setInterval(() => {
+    if (index < text.length) {
+      element.textContent += text.charAt(index);
+      index++;
+    } else {
+      clearInterval(typeInterval);
+      // Remove cursor after typing is complete
+      setTimeout(() => {
+        element.classList.remove('typing');
+        element.classList.add('typing-complete');
+      }, 500);
+    }
+  }, speed);
 }
 
 // Keyboard navigation
