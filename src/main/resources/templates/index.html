@@ -18,9 +18,9 @@
             </div>
             <nav class="flex-1">
                 <ul class="space-y-4">
-                    <li><a href="#home" class="nav-link block text-lg py-2 px-4 rounded transition-colors">🏠 Home</a></li>
-                    <li><a href="#about" class="nav-link block text-lg py-2 px-4 rounded transition-colors">👤 About Me</a></li>
-                    <li><a href="#projects" class="nav-link block text-lg py-2 px-4 rounded transition-colors">💼 Projects</a></li>
+                    <li><a href="#home" class="nav-link block text-lg py-2 px-4 rounded transition-colors">Home</a></li>
+                    <li><a href="#about" class="nav-link block text-lg py-2 px-4 rounded transition-colors">About Me</a></li>
+                    <li><a href="#projects" class="nav-link block text-lg py-2 px-4 rounded transition-colors">Projects</a></li>
                 </ul>
             </nav>
             <button id="themeToggle" class="py-3 px-6 rounded-lg font-semibold transition-all">
@@ -90,58 +90,142 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="section flex items-center justify-center overflow-hidden">
-            <div class="w-full max-w-6xl px-8 fade-in-up">
-                <h2 id="projects-heading" class="text-5xl font-bold mb-12 text-center">My Projects</h2>
-                <div class="carousel-container relative h-96">
-                    <div class="relative h-full flex items-center justify-center">
-                        <!-- Project 1 -->
-                        <div class="carousel-item absolute w-96 h-80 rounded-2xl shadow-2xl active">
-                            <svg class="w-full h-full rounded-2xl" viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <linearGradient id="project1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
-                                        <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
-                                    </linearGradient>
-                                </defs>
-                                <rect width="400" height="350" fill="url(#project1)" rx="16" />
-                                <text x="200" y="180" font-size="48" font-weight="bold" fill="white" text-anchor="middle">📸</text>
-                                <text x="200" y="230" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Project One</text>
-                            </svg>
+        <section id="projects" class="section flex items-center justify-center min-h-screen py-20">
+            <div class="w-full max-w-7xl px-8">
+                <h2 class="text-5xl md:text-6xl font-bold mb-16 text-center">My Projects</h2>
+
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <!-- Coding Projects Carousel -->
+                    <div class="coding-projects">
+                        <h3 class="text-3xl font-bold mb-8 text-center text-blue-400">coding projects</h3>
+                        <div class="carousel-wrapper" style="height: 550px; position: relative;">
+                            <div class="carousel-container relative h-full">
+                                <!-- Coding Project 1: Object Quest -->
+                                <a href="https://github.com/Ben-Mast/OOP-Final-Project" target="_blank" rel="noopener noreferrer"
+                                   class="carousel-item coding-carousel absolute w-full rounded-2xl shadow-2xl active"
+                                   style="max-width: 500px; left: 50%; transform: translateX(-50%);">
+                                    <div class="project-card bg-gray-800 rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
+                                        <div class="w-full h-64 overflow-hidden">
+                                            <img src="/images/projects/object-quest.png" alt="Object Quest Game" class="w-full h-full object-cover"/>
+                                        </div>
+                                        <div class="p-6 flex-1 flex flex-col">
+                                            <h4 class="text-2xl font-bold mb-3">Adventurer & Creature Maze Game</h4>
+                                            <p class="text-gray-300 text-sm flex-1">a team project that encapsulates concepts of object-oriented programming into multiple iterations of a game</p>
+                                            <span class="text-blue-400 text-sm mt-4 inline-flex items-center">
+                                        View Project →
+                                    </span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <!-- Coding Project 2: Campus Cafe Connect -->
+                                <a href="https://github.com/vsenethong/info-4609" target="_blank" rel="noopener noreferrer"
+                                   class="carousel-item coding-carousel absolute w-full rounded-2xl shadow-2xl next"
+                                   style="max-width: 500px; left: 50%; transform: translateX(-50%);">
+                                    <div class="project-card bg-gray-800 rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
+                                        <div class="w-full h-64 overflow-hidden">
+                                            <img src="/images/projects/campus-cafe.png" alt="Campus Cafe Connect" class="w-full h-full object-cover"/>
+                                        </div>
+                                        <div class="p-6 flex-1 flex flex-col">
+                                            <h4 class="text-2xl font-bold mb-3">Campus Cafe Connect</h4>
+                                            <p class="text-gray-300 text-sm flex-1">a user-interface and design project solving the current system of cafe experiences on campus</p>
+                                            <span class="text-blue-400 text-sm mt-4 inline-flex items-center">
+                                        View Project →
+                                    </span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <!-- Coding Project 3: BudgetBites -->
+                                <a href="https://github.com/doch4472/Group-6-Project" target="_blank" rel="noopener noreferrer"
+                                   class="carousel-item coding-carousel absolute w-full rounded-2xl shadow-2xl hidden"
+                                   style="max-width: 500px; left: 50%; transform: translateX(-50%);">
+                                    <div class="project-card bg-gray-800 rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
+                                        <div class="w-full h-64 overflow-hidden">
+                                            <img src="/images/projects/budgetbites.png" alt="BudgetBites" class="w-full h-full object-cover"/>
+                                        </div>
+                                        <div class="p-6 flex-1 flex flex-col">
+                                            <h4 class="text-2xl font-bold mb-3">BudgetBites</h4>
+                                            <p class="text-gray-300 text-sm flex-1">a website for broke college students looking for their next meal</p>
+                                            <span class="text-blue-400 text-sm mt-4 inline-flex items-center">
+                                        View Project →
+                                    </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                        <!-- Project 2 -->
-                        <div class="carousel-item absolute w-96 h-80 rounded-2xl shadow-2xl next">
-                            <svg class="w-full h-full rounded-2xl" viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <linearGradient id="project2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
-                                        <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
-                                    </linearGradient>
-                                </defs>
-                                <rect width="400" height="350" fill="url(#project2)" rx="16" />
-                                <text x="200" y="180" font-size="48" font-weight="bold" fill="white" text-anchor="middle">🎬</text>
-                                <text x="200" y="230" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Project Two</text>
-                            </svg>
-                        </div>
-                        <!-- Project 3 -->
-                        <div class="carousel-item absolute w-96 h-80 rounded-2xl shadow-2xl hidden">
-                            <svg class="w-full h-full rounded-2xl" viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <linearGradient id="project3" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
-                                        <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
-                                    </linearGradient>
-                                </defs>
-                                <rect width="400" height="350" fill="url(#project3)" rx="16" />
-                                <text x="200" y="180" font-size="48" font-weight="bold" fill="white" text-anchor="middle">🎨</text>
-                                <text x="200" y="230" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Project Three</text>
-                            </svg>
+                        <div class="flex justify-center gap-4 mt-8">
+                            <button class="coding-prev-btn carousel-btn px-8 py-3 rounded-full font-semibold transition-all">← Previous</button>
+                            <button class="coding-next-btn carousel-btn px-8 py-3 rounded-full font-semibold transition-all">Next →</button>
                         </div>
                     </div>
-                </div>
-                <div class="flex justify-center gap-4 mt-12">
-                    <button id="prevBtn" class="carousel-btn px-8 py-3 rounded-full font-semibold transition-all">← Previous</button>
-                    <button id="nextBtn" class="carousel-btn px-8 py-3 rounded-full font-semibold transition-all">Next →</button>
+
+                    <!-- Creative Projects Carousel -->
+                    <div class="creative-projects">
+                        <h3 class="text-3xl font-bold mb-8 text-center text-purple-400">creative projects</h3>
+                        <div class="carousel-wrapper" style="height: 550px; position: relative;">
+                            <div class="carousel-container relative h-full">
+                                <!-- Creative Project 1: Azure -->
+                                <a href="https://drive.google.com/file/d/1wCEhSEdbOd1SZBuaVxB62w861qfaztkf/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+                                   class="carousel-item creative-carousel absolute w-full rounded-2xl shadow-2xl active"
+                                   style="max-width: 500px; left: 50%; transform: translateX(-50%);">
+                                    <div class="project-card bg-gray-800 rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
+                                        <div class="w-full h-64 overflow-hidden">
+                                            <img src="/images/projects/azure.png" alt="Azure Eyeshadow Palette" class="w-full h-full object-cover"/>
+                                        </div>
+                                        <div class="p-6 flex-1 flex flex-col">
+                                            <h4 class="text-2xl font-bold mb-3">Azure</h4>
+                                            <p class="text-gray-300 text-sm flex-1">an imaginative mockup of an eyeshadow palette</p>
+                                            <span class="text-purple-400 text-sm mt-4 inline-flex items-center">
+                                        View Project →
+                                    </span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <!-- Creative Project 2: Asian Unity -->
+                                <a href="https://instagram.com/cuasianunity" target="_blank" rel="noopener noreferrer"
+                                   class="carousel-item creative-carousel absolute w-full rounded-2xl shadow-2xl next"
+                                   style="max-width: 500px; left: 50%; transform: translateX(-50%);">
+                                    <div class="project-card bg-gray-800 rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
+                                        <div class="w-full h-64 overflow-hidden">
+                                            <img src="/images/projects/asian-unity.png" alt="Asian Unity Instagram" class="w-full h-full object-cover"/>
+                                        </div>
+                                        <div class="p-6 flex-1 flex flex-col">
+                                            <h4 class="text-2xl font-bold mb-3">Asian Unity</h4>
+                                            <p class="text-gray-300 text-sm flex-1">as the public relations officer for Asian Unity for two consecutive years, it was my job to update the Instagram page with graphics.</p>
+                                            <span class="text-purple-400 text-sm mt-4 inline-flex items-center">
+                                        View Project →
+                                    </span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <!-- Creative Project 3: Clarity -->
+                                <a href="https://drive.google.com/file/d/14Ax8xfIertI1-7fmkyd18ppKATkkKK6N/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+                                   class="carousel-item creative-carousel absolute w-full rounded-2xl shadow-2xl hidden"
+                                   style="max-width: 500px; left: 50%; transform: translateX(-50%);">
+                                    <div class="project-card bg-gray-800 rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
+                                        <div class="w-full h-64 overflow-hidden">
+                                            <img src="/images/projects/clarity.png" alt="Clarity Typography" class="w-full h-full object-cover"/>
+                                        </div>
+                                        <div class="p-6 flex-1 flex flex-col">
+                                            <h4 class="text-2xl font-bold mb-3">Clarity</h4>
+                                            <p class="text-gray-300 text-sm flex-1">an expressive typography booklet of the lyrics to <em>Clarity</em> by Zedd.</p>
+                                            <span class="text-purple-400 text-sm mt-4 inline-flex items-center">
+                                        View Project →
+                                    </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex justify-center gap-4 mt-8">
+                            <button class="creative-prev-btn carousel-btn px-8 py-3 rounded-full font-semibold transition-all">← Previous</button>
+                            <button class="creative-next-btn carousel-btn px-8 py-3 rounded-full font-semibold transition-all">Next →</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -1,4 +1,30 @@
-body {
+/* Carousel 3D Effects */
+.carousel-wrapper {
+  overflow: visible;
+}
+
+.carousel-container {
+  perspective: 1200px;
+  position: relative;
+  overflow: visible;
+}
+
+.carousel-item {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.5s ease,
+              filter 0.5s ease;
+  pointer-events: none;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.carousel-item.active {
+  transform: translateX(-50%) scale(1) translateZ(0);
+  opacity: 1;
+  z-index: 10;
+  filter: blur(0px);
+  pointerbody {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -95,6 +121,24 @@ html {
   transform: scale(0.7) translateZ(-200px);
   z-index: 0;
   filter: blur(4px);
+}
+
+/* Project Cards */
+.project-card {
+  transition: transform 0.3s ease;
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
 }
 
 /* Fade In Up Animation */

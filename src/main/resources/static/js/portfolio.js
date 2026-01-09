@@ -14,9 +14,12 @@ const defaultConfig = {
 };
 
 let currentTheme = 'dark';
-let currentCarouselIndex = 0;
-const carouselItems = document.querySelectorAll('.carousel-item');
-const totalItems = carouselItems.length;
+let currentCodingIndex = 0;
+let currentCreativeIndex = 0;
+const codingCarouselItems = document.querySelectorAll('.coding-carousel');
+const creativeCarouselItems = document.querySelectorAll('.creative-carousel');
+const totalCodingItems = codingCarouselItems.length;
+const totalCreativeItems = creativeCarouselItems.length;
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,18 +62,19 @@ function initializeAnimations() {
 
 // Carousel Functions
 function initializeCarousel() {
-  updateCarousel();
+  updateCodingCarousel();
+  updateCreativeCarousel();
 }
 
-function updateCarousel() {
-  carouselItems.forEach((item, index) => {
+function updateCodingCarousel() {
+  codingCarouselItems.forEach((item, index) => {
     item.classList.remove('active', 'prev', 'next', 'hidden');
 
-    if (index === currentCarouselIndex) {
+    if (index === currentCodingIndex) {
       item.classList.add('active');
-    } else if (index === (currentCarouselIndex - 1 + totalItems) % totalItems) {
+    } else if (index === (currentCodingIndex - 1 + totalCodingItems) % totalCodingItems) {
       item.classList.add('prev');
-    } else if (index === (currentCarouselIndex + 1) % totalItems) {
+    } else if (index === (currentCodingIndex + 1) % totalCodingItems) {
       item.classList.add('next');
     } else {
       item.classList.add('hidden');
@@ -78,25 +82,56 @@ function updateCarousel() {
   });
 }
 
-document.getElementById('prevBtn')?.addEventListener('click', () => {
-  currentCarouselIndex = (currentCarouselIndex - 1 + totalItems) % totalItems;
-  updateCarousel();
-  addButtonFeedback('prevBtn');
+function updateCreativeCarousel() {
+  creativeCarouselItems.forEach((item, index) => {
+    item.classList.remove('active', 'prev', 'next', 'hidden');
+
+    if (index === currentCreativeIndex) {
+      item.classList.add('active');
+    } else if (index === (currentCreativeIndex - 1 + totalCreativeItems) % totalCreativeItems) {
+      item.classList.add('prev');
+    } else if (index === (currentCreativeIndex + 1) % totalCreativeItems) {
+      item.classList.add('next');
+    } else {
+      item.classList.add('hidden');
+    }
+  });
+}
+
+// Coding Carousel Controls
+document.querySelector('.coding-prev-btn')?.addEventListener('click', () => {
+  currentCodingIndex = (currentCodingIndex - 1 + totalCodingItems) % totalCodingItems;
+  updateCodingCarousel();
+  addButtonFeedback(document.querySelector('.coding-prev-btn'));
 });
 
-document.getElementById('nextBtn')?.addEventListener('click', () => {
-  currentCarouselIndex = (currentCarouselIndex + 1) % totalItems;
-  updateCarousel();
-  addButtonFeedback('nextBtn');
+document.querySelector('.coding-next-btn')?.addEventListener('click', () => {
+  currentCodingIndex = (currentCodingIndex + 1) % totalCodingItems;
+  updateCodingCarousel();
+  addButtonFeedback(document.querySelector('.coding-next-btn'));
+});
+
+// Creative Carousel Controls
+document.querySelector('.creative-prev-btn')?.addEventListener('click', () => {
+  currentCreativeIndex = (currentCreativeIndex - 1 + totalCreativeItems) % totalCreativeItems;
+  updateCreativeCarousel();
+  addButtonFeedback(document.querySelector('.creative-prev-btn'));
+});
+
+document.querySelector('.creative-next-btn')?.addEventListener('click', () => {
+  currentCreativeIndex = (currentCreativeIndex + 1) % totalCreativeItems;
+  updateCreativeCarousel();
+  addButtonFeedback(document.querySelector('.creative-next-btn'));
 });
 
 // Add click feedback animation
-function addButtonFeedback(buttonId) {
-  const button = document.getElementById(buttonId);
-  button.style.transform = 'scale(0.95)';
-  setTimeout(() => {
-    button.style.transform = '';
-  }, 100);
+function addButtonFeedback(button) {
+  if (button) {
+    button.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      button.style.transform = '';
+    }, 100);
+  }
 }
 
 // Sidebar Functions
@@ -417,8 +452,8 @@ document.addEventListener('keydown', (e) => {
 
   // Arrow keys for carousel
   if (e.key === 'ArrowLeft') {
-    document.getElementById('prevBtn')?.click();
+    document.querySelector('.coding-prev-btn')?.click();
   } else if (e.key === 'ArrowRight') {
-    document.getElementById('nextBtn')?.click();
+    document.querySelector('.coding-next-btn')?.click();
   }
 });
