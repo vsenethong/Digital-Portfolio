@@ -24,7 +24,52 @@
   opacity: 1;
   z-index: 10;
   filter: blur(0px);
-  pointerbody {
+  pointer-events: auto;
+}
+
+.carousel-item.prev {
+  transform: translateX(-50%) scale(0.85) translateX(-40%) rotateY(15deg) translateZ(-100px);
+  opacity: 0;
+  z-index: 5;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.carousel-item.next {
+  transform: translateX(-50%) scale(0.85) translateX(40%) rotateY(-15deg) translateZ(-100px);
+  opacity: 0;
+  z-index: 5;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.carousel-item.hidden {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.7) translateZ(-200px);
+  z-index: 0;
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+/* Project Cards */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  background-color: #1f2937;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.project-card img {
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -47,8 +92,6 @@ html {
   min-height: 100vh;
   scroll-snap-align: start;
   transition: opacity 0.6s ease, transform 0.6s ease;
-  opacity: 0;
-  transform: translateY(20px);
 }
 
 .section.visible {
@@ -350,4 +393,117 @@ html {
 #about-heading {
   min-height: 1.2em;
   display: inline-block;
+}
+
+#connect-heading {
+    min-height: 1.2em;
+    display: inline-block;
+    margin-left: 2rem;
+}
+
+/* Connect Section Styles */
+.contact-card {
+  background: rgba(31, 41, 55, 0.5);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contact-item {
+  background: rgba(99, 102, 241, 0.1);
+  cursor: pointer;
+}
+
+.contact-item:hover {
+  background: rgba(99, 102, 241, 0.2);
+}
+
+.contact-icon {
+  background: rgba(139, 92, 246, 0.2);
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  color: white;
+}
+
+.download-btn:hover {
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+}
+
+.stat-card {
+  background: rgba(99, 102, 241, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+}
+
+/* Gallery Section Styles */
+.gallery-carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-carousel {
+  display: flex;
+  gap: 2rem;
+  width: fit-content;
+}
+
+.gallery-carousel.scroll-right {
+  animation: scrollRight 30s linear infinite;
+}
+
+.gallery-carousel.scroll-left {
+  animation: scrollLeft 30s linear infinite;
+}
+
+.gallery-carousel:hover {
+  animation-play-state: paused;
+}
+
+.gallery-item {
+  flex-shrink: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

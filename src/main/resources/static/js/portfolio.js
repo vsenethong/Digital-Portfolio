@@ -23,12 +23,17 @@ const totalCreativeItems = creativeCarouselItems.length;
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
+  // Force sidebar closed on load
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.remove('open');
+  sidebar.classList.add('collapsed');
+
   initializeAnimations();
   initializeCarousel();
   initializeSidebar();
   initializeTheme();
   initializeScrollEffects();
-  initializeTypingEffect();
+  initializeTypingEffects();
   applyConfig(defaultConfig);
 });
 
@@ -137,19 +142,21 @@ function addButtonFeedback(button) {
 // Sidebar Functions
 function initializeSidebar() {
   const sidebar = document.getElementById('sidebar');
+  // Start with sidebar closed
   sidebar.classList.add('collapsed');
+  sidebar.classList.remove('open');
 }
 
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
-  const isCollapsed = sidebar.classList.contains('collapsed');
+  const isOpen = sidebar.classList.contains('open');
 
-  if (isCollapsed) {
-    sidebar.classList.remove('collapsed');
-    sidebar.classList.add('open');
-  } else {
+  if (isOpen) {
     sidebar.classList.remove('open');
     sidebar.classList.add('collapsed');
+  } else {
+    sidebar.classList.remove('collapsed');
+    sidebar.classList.add('open');
   }
 }
 
@@ -237,12 +244,18 @@ function applyTheme() {
       surface_color: "#ffffff",
       text_color: "#0f172a",
       primary_action_color: "#8b5cf6",
-      secondary_action_color: "#6366f1"
+      secondary_action_color: "#6366f1",
+      card_background: "#ffffff",
+      card_text: "#1f2937"
     });
     document.getElementById('themeIcon').textContent = '☀️';
     document.getElementById('themeText').textContent = 'Light Mode';
   } else {
-    applyConfig(defaultConfig);
+    applyConfig({
+      ...defaultConfig,
+      card_background: "#1f2937",
+      card_text: "#f3f4f6"
+    });
     document.getElementById('themeIcon').textContent = '🌙';
     document.getElementById('themeText').textContent = 'Dark Mode';
   }
@@ -384,41 +397,83 @@ function applyConfig(config) {
     btn.style.color = '#ffffff';
     btn.style.fontFamily = `${customFont}, ${baseFontStack}`;
   });
+
+  // Project cards - apply theme
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.style.backgroundColor = config.card_background || '#1f2937';
+    card.style.color = config.card_text || '#f3f4f6';
+  });
+
+  document.querySelectorAll('.project-card p').forEach(p => {
+    if (currentTheme === 'light') {
+      p.style.color = '#4b5563'; // gray-600 for light mode
+    } else {
+      p.style.color = '#d1d5db'; // gray-300 for dark mode
+    }
+  });
+
+  // Contact cards
+  document.querySelectorAll('.contact-card').forEach(card => {
+    if (currentTheme === 'light') {
+      card.style.background = 'rgba(255, 255, 255, 0.9)';
+      card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+    } else {
+      card.style.background = 'rgba(31, 41, 55, 0.5)';
+      card.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+    }
+  });
+
+  document.querySelectorAll('.contact-item, .stat-card').forEach(item => {
+    if (currentTheme === 'light') {
+      item.style.background = 'rgba(99, 102, 241, 0.05)';
+    } else {
+      item.style.background = 'rgba(99, 102, 241, 0.1)';
+    }
+  });
 }
 
 // Typing Effect for About Heading
-function initializeTypingEffect() {
-  const aboutHeading = document.getElementById('about-heading');
-  if (!aboutHeading) return;
+function initializeTypingEffects() {
+  const typingConfigs = [
+    { headingId: 'about-heading', threshold: 0.3 },
+    { headingId: 'connect-heading', threshold: 0.4 }
+  ];
 
-  const fullText = aboutHeading.textContent;
+  typingConfigs.forEach(setupTypingObserver);
+}
+
+
+function setupTypingObserver({ headingId, threshold }) {
+  const heading = document.getElementById(headingId);
+  if (!heading) return;
+
+  const fullText = heading.textContent;
   let hasTyped = false;
 
-  // Store original text and clear it
-  aboutHeading.setAttribute('data-text', fullText);
-  aboutHeading.textContent = '';
+  heading.setAttribute('data-text', fullText);
+  heading.textContent = '';
 
-  const observerOptions = {
-    root: null,
-    threshold: 0.3,
-    rootMargin: '0px'
-  };
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasTyped) {
+          hasTyped = true;
+          typeText(heading, fullText);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      root: document.querySelector('.scroll-container'),
+      threshold,
+      rootMargin: '0px'
+    }
+  );
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasTyped) {
-        hasTyped = true;
-        typeText(aboutHeading, fullText);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  const aboutSection = document.getElementById('about');
-  if (aboutSection) {
-    observer.observe(aboutSection);
-  }
+  observer.observe(heading);
+  console.log('Observing:', headingId);
 }
+
 
 function typeText(element, text, speed = 80) {
   let index = 0;
