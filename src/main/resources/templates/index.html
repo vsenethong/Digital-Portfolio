@@ -18,11 +18,15 @@
             </div>
             <nav class="flex-1">
                 <ul class="space-y-4">
-                    <li><a href="#home" class="nav-link block text-lg py-2 px-4 rounded transition-colors">🏠 Home</a></li>
-                    <li><a href="#about" class="nav-link block text-lg py-2 px-4 rounded transition-colors">👤 About Me</a></li>
-                    <li><a href="#projects" class="nav-link block text-lg py-2 px-4 rounded transition-colors">💼 Projects</a></li>
-                    <li><a href="#gallery" class="nav-link block text-lg py-2 px-4 rounded transition-colors">📷 Gallery</a></li>
-                    <li><a href="#connect" class="nav-link block text-lg py-2 px-4 rounded transition-colors">📧 Connect</a></li>
+                    <li><a href="#home" class="nav-link block text-lg py-2 px-4 rounded transition-colors">Home</a></li>
+                    <li><a href="#about" class="nav-link block text-lg py-2 px-4 rounded transition-colors">About Me</a>
+                    </li>
+                    <li><a href="#projects"
+                           class="nav-link block text-lg py-2 px-4 rounded transition-colors">Projects</a></li>
+                    <li><a href="#gallery"
+                           class="nav-link block text-lg py-2 px-4 rounded transition-colors">Gallery</a></li>
+                    <li><a href="#connect"
+                           class="nav-link block text-lg py-2 px-4 rounded transition-colors">Connect</a></li>
                 </ul>
             </nav>
             <button id="themeToggle" class="py-3 px-6 rounded-lg font-semibold transition-all">
@@ -39,14 +43,17 @@
     <main class="scroll-container h-full w-full">
         <!-- Home Section -->
         <section id="home" class="section flex min-h-screen items-center justify-center">
-            <div class="flex flex-col items-center text-center px-8 fade-in-up space-y-6">
-                <img src="/images/VanessaLogo.png" alt="Vanessa Logo" class="block w-[480px] md:w-[360px] lg:w-[540px] max-w-none animate-fade-in"/>
-                <p class="text-xl md:text-2xl text-gray-400 max-w-2xl">
+            <div class="flex flex-col items-center text-center px-6 sm:px-8 space-y-8 md:space-y-10 fade-in-up">
+                <img src="/images/VanessaLogo.png" alt="Vanessa Logo" class="block w-[520px] sm:w-[600px] lg:w-[720px] max-w-full animate-fade-in delay-100"/>
+                <p class="text-lg sm:text-xl md:text-2xl text-gray-400 tracking-wide max-w-2xl delay-200">
                     Software Engineer & Frontend Developer
                 </p>
-                <a href="#about" class="scroll-btn mt-6 px-10 py-3 rounded-full font-semibold transition-all hover:scale-105">
-                    Discover More
-                </a>
+
+                <div class="pt-4">
+                    <a href="#about" class="scroll-btn inline-flex items-center justify-center px-12 py-4 rounded-full text-base md:text-lg font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-xl delay-300">
+                        Discover More
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -56,30 +63,42 @@
             <div class="max-w-7xl w-full px-8">
                 <div class="mb-12">
                     <h2 id="about-heading" class="text-5xl md:text-6xl font-bold mb-4">Hi, I'm Vanessa Senethong.</h2>
-                    <p class="text-xl md:text-2xl text-gray-400">Software Engineer | Frontend Developer | UX Enthusiast</p>
+                    <p class="text-xl md:text-2xl text-gray-400">Software Engineer | Frontend Developer | UX
+                        Enthusiast</p>
                 </div>
 
                 <div class="grid lg:grid-cols-5 gap-12 items-start">
                     <!-- Image Column -->
                     <div class="lg:col-span-2">
                         <div class="about-image-container sticky top-24">
-                            <img src="/images/headshot.png" alt="Vanessa Senethong" class="w-full h-auto rounded-2xl shadow-2xl object-cover"/>
+                            <img src="/images/headshot.png" alt="Vanessa Senethong"
+                                 class="w-full h-auto rounded-2xl shadow-2xl object-cover"/>
                         </div>
                     </div>
 
                     <!-- Text Column -->
                     <div class="lg:col-span-3 space-y-6">
                         <p class="text-lg md:text-xl leading-relaxed">
-                            I'm a <strong>results-driven Software Engineer</strong> and <strong>Frontend Developer</strong> with a Bachelor of Arts in Computer Science and a minor in Creative Technology and Design from the University of Colorado Boulder (December 2025).
+                            I'm a <strong>results-driven Software Engineer</strong> and <strong>Frontend
+                            Developer</strong> with a Bachelor of Arts in Computer Science and a minor in Creative
+                            Technology and Design from the University of Colorado Boulder (December 2025).
                         </p>
                         <p class="text-lg md:text-xl leading-relaxed">
-                            I specialize in building <strong>user-focused web applications</strong> with a strong foundation in object-oriented programming, usability, and accessibility. My experience spans React development, UX research, database systems, and leading cross-functional teams to deliver impactful digital solutions.
+                            I specialize in building <strong>user-focused web applications</strong> with a strong
+                            foundation in object-oriented programming, usability, and accessibility. My experience spans
+                            React development, UX research, database systems, and leading cross-functional teams to
+                            deliver impactful digital solutions.
                         </p>
                         <p class="text-lg md:text-xl leading-relaxed">
-                            Beyond coding, I'm passionate about human-computer interaction and ensuring technology is accessible to everyone. I've led initiatives as Public Relations Officer for Asian Unity and held leadership roles at The Home Depot, where I strengthened my communication and team coordination skills.
+                            Beyond coding, I'm passionate about human-computer interaction and ensuring technology is
+                            accessible to everyone. I've led initiatives as Public Relations Officer for Asian Unity and
+                            held leadership roles at The Home Depot, where I strengthened my communication and team
+                            coordination skills.
                         </p>
                         <p class="text-lg md:text-xl leading-relaxed">
-                            <strong>Currently seeking:</strong> Software Engineering, Frontend Development, or UX Engineering roles where I can contribute to meaningful projects and continue growing as a developer.
+                            <strong>Currently seeking:</strong> Software Engineering, Frontend Development, or UX
+                            Engineering roles where I can contribute to meaningful projects and continue growing as a
+                            developer.
                         </p>
 
                         <div class="pt-8">
@@ -88,20 +107,24 @@
                                 <div>
                                     <p class="text-sm font-semibold text-gray-400 mb-2">Languages</p>
                                     <div class="flex flex-wrap gap-2">
-                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">JavaScript</div>
+                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">JavaScript
+                                        </div>
                                         <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">Java</div>
                                         <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">C++</div>
                                         <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">Python</div>
                                         <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">SQL</div>
-                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">HTML/CSS</div>
+                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">HTML/CSS
+                                        </div>
                                     </div>
                                 </div>
                                 <div>
                                     <p class="text-sm font-semibold text-gray-400 mb-2">Frameworks & Tools</p>
                                     <div class="flex flex-wrap gap-2">
                                         <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">React</div>
-                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">Node.js</div>
-                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">PostgreSQL</div>
+                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">Node.js
+                                        </div>
+                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">PostgreSQL
+                                        </div>
                                         <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">Docker</div>
                                         <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">Git</div>
                                         <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">Figma</div>
@@ -110,10 +133,18 @@
                                 <div>
                                     <p class="text-sm font-semibold text-gray-400 mb-2">Specializations</p>
                                     <div class="flex flex-wrap gap-2">
-                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">UI/UX Design</div>
-                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">Human-Computer Interaction</div>
-                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">Accessibility</div>
-                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">User Research</div>
+                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">UI/UX
+                                            Design
+                                        </div>
+                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">
+                                            Human-Computer Interaction
+                                        </div>
+                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">
+                                            Accessibility
+                                        </div>
+                                        <div class="skill-badge px-4 py-2 rounded-full text-sm font-medium">User
+                                            Research
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -135,16 +166,21 @@
                         <div class="carousel-wrapper" style="height: 480px; position: relative;">
                             <div class="carousel-container relative h-full">
                                 <!-- Project 1: Campus Cafe Connect (Lead role) -->
-                                <a href="https://github.com/vsenethong/info-4609" target="_blank" rel="noopener noreferrer"
+                                <a href="https://github.com/vsenethong/info-4609" target="_blank"
+                                   rel="noopener noreferrer"
                                    class="carousel-item coding-carousel absolute w-full rounded-2xl shadow-2xl active"
                                    style="max-width: 500px; left: 50%; transform: translateX(-50%);">
                                     <div class="project-card bg-gray-800 rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
                                         <div class="w-full h-64 overflow-hidden">
-                                            <img src="/images/projects/campus-cafe.png" alt="Campus Cafe Connect" class="w-full h-full object-cover"/>
+                                            <img src="/images/projects/campus-cafe.png" alt="Campus Cafe Connect"
+                                                 class="w-full h-full object-cover"/>
                                         </div>
                                         <div class="p-6 flex-1 flex flex-col">
                                             <h4 class="text-2xl font-bold mb-3">Campus Café Connect</h4>
-                                            <p class="text-gray-300 text-sm flex-1">Led design and development of a mobile-first React ordering prototype. Conducted UX research with 53+ participants, built responsive components with React Portals for accessibility.</p>
+                                            <p class="text-gray-300 text-sm flex-1">Led design and development of a
+                                                mobile-first React ordering prototype. Conducted UX research with 53+
+                                                participants, built responsive components with React Portals for
+                                                accessibility.</p>
                                             <div class="flex flex-wrap gap-2 mt-3 mb-3">
                                                 <span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">React</span>
                                                 <span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">UX Research</span>
@@ -158,16 +194,20 @@
                                 </a>
 
                                 <!-- Project 2: Polymorphia (Most recent) -->
-                                <a href="https://github.com/Ben-Mast/OOP-Final-Project" target="_blank" rel="noopener noreferrer"
+                                <a href="https://github.com/Ben-Mast/OOP-Final-Project" target="_blank"
+                                   rel="noopener noreferrer"
                                    class="carousel-item coding-carousel absolute w-full rounded-2xl shadow-2xl next"
                                    style="max-width: 500px; left: 50%; transform: translateX(-50%);">
                                     <div class="project-card bg-gray-800 rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
                                         <div class="w-full h-64 overflow-hidden">
-                                            <img src="/images/projects/object-quest.png" alt="Polymorphia Project" class="w-full h-full object-cover"/>
+                                            <img src="/images/projects/object-quest.png" alt="Polymorphia Project"
+                                                 class="w-full h-full object-cover"/>
                                         </div>
                                         <div class="p-6 flex-1 flex flex-col">
                                             <h4 class="text-2xl font-bold mb-3">Polymorphia Project</h4>
-                                            <p class="text-gray-300 text-sm flex-1">Developed extensible OOP system emphasizing modularity and polymorphism. Led pair programming sessions as primary driver, translating design into clean implementation.</p>
+                                            <p class="text-gray-300 text-sm flex-1">Developed extensible OOP system
+                                                emphasizing modularity and polymorphism. Led pair programming sessions
+                                                as primary driver, translating design into clean implementation.</p>
                                             <div class="flex flex-wrap gap-2 mt-3 mb-3">
                                                 <span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">Java</span>
                                                 <span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">OOP</span>
@@ -181,16 +221,20 @@
                                 </a>
 
                                 <!-- Project 3: BudgetBites -->
-                                <a href="https://github.com/doch4472/Group-6-Project" target="_blank" rel="noopener noreferrer"
+                                <a href="https://github.com/doch4472/Group-6-Project" target="_blank"
+                                   rel="noopener noreferrer"
                                    class="carousel-item coding-carousel absolute w-full rounded-2xl shadow-2xl hidden"
                                    style="max-width: 500px; left: 50%; transform: translateX(-50%);">
                                     <div class="project-card bg-gray-800 rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
                                         <div class="w-full h-64 overflow-hidden">
-                                            <img src="/images/projects/budgetbites.png" alt="BudgetBites" class="w-full h-full object-cover"/>
+                                            <img src="/images/projects/budgetbites.png" alt="BudgetBites"
+                                                 class="w-full h-full object-cover"/>
                                         </div>
                                         <div class="p-6 flex-1 flex flex-col">
                                             <h4 class="text-2xl font-bold mb-3">BudgetBites</h4>
-                                            <p class="text-gray-300 text-sm flex-1">Full-stack web app for budget-conscious students. Configured Docker environment, implemented secure authentication with Express.js, developed API routes and UI.</p>
+                                            <p class="text-gray-300 text-sm flex-1">Full-stack web app for
+                                                budget-conscious students. Configured Docker environment, implemented
+                                                secure authentication with Express.js, developed API routes and UI.</p>
                                             <div class="flex flex-wrap gap-2 mt-3 mb-3">
                                                 <span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">Node.js</span>
                                                 <span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">Docker</span>
@@ -205,8 +249,12 @@
                             </div>
                         </div>
                         <div class="flex justify-center gap-4 mt-2">
-                            <button class="coding-prev-btn carousel-btn px-8 py-3 rounded-full font-semibold transition-all">← Previous</button>
-                            <button class="coding-next-btn carousel-btn px-8 py-3 rounded-full font-semibold transition-all">Next →</button>
+                            <button class="coding-prev-btn carousel-btn px-8 py-3 rounded-full font-semibold transition-all">
+                                ← Previous
+                            </button>
+                            <button class="coding-next-btn carousel-btn px-8 py-3 rounded-full font-semibold transition-all">
+                                Next →
+                            </button>
                         </div>
                     </div>
 
@@ -216,16 +264,20 @@
                         <div class="carousel-wrapper" style="height: 480px; position: relative;">
                             <div class="carousel-container relative h-full">
                                 <!-- Keep existing creative projects -->
-                                <a href="https://drive.google.com/file/d/1wCEhSEdbOd1SZBuaVxB62w861qfaztkf/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+                                <a href="https://drive.google.com/file/d/1wCEhSEdbOd1SZBuaVxB62w861qfaztkf/view?usp=sharing"
+                                   target="_blank" rel="noopener noreferrer"
                                    class="carousel-item creative-carousel absolute w-full rounded-2xl shadow-2xl active"
                                    style="max-width: 500px; left: 50%; transform: translateX(-50%);">
                                     <div class="project-card bg-gray-800 rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
                                         <div class="w-full h-64 overflow-hidden">
-                                            <img src="/images/projects/azure.png" alt="Azure" class="w-full h-full object-cover"/>
+                                            <img src="/images/projects/azure.png" alt="Azure"
+                                                 class="w-full h-full object-cover"/>
                                         </div>
                                         <div class="p-6 flex-1 flex flex-col">
                                             <h4 class="text-2xl font-bold mb-3">Azure</h4>
-                                            <p class="text-gray-300 text-sm flex-1">An imaginative mockup of an eyeshadow palette showcasing design thinking and creative problem-solving.</p>
+                                            <p class="text-gray-300 text-sm flex-1">An imaginative mockup of an
+                                                eyeshadow palette showcasing design thinking and creative
+                                                problem-solving.</p>
                                             <span class="text-purple-400 text-sm mt-4 inline-flex items-center">View Project →</span>
                                         </div>
                                     </div>
@@ -236,26 +288,32 @@
                                    style="max-width: 500px; left: 50%; transform: translateX(-50%);">
                                     <div class="project-card bg-gray-800 rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
                                         <div class="w-full h-64 overflow-hidden">
-                                            <img src="/images/projects/asian-unity.png" alt="Asian Unity" class="w-full h-full object-cover"/>
+                                            <img src="/images/projects/asian-unity.png" alt="Asian Unity"
+                                                 class="w-full h-full object-cover"/>
                                         </div>
                                         <div class="p-6 flex-1 flex flex-col">
                                             <h4 class="text-2xl font-bold mb-3">Asian Unity PR</h4>
-                                            <p class="text-gray-300 text-sm flex-1">Managed biweekly communications and produced engaging event content as PR Officer, increasing community visibility and engagement.</p>
+                                            <p class="text-gray-300 text-sm flex-1">Managed biweekly communications and
+                                                produced engaging event content as PR Officer, increasing community
+                                                visibility and engagement.</p>
                                             <span class="text-purple-400 text-sm mt-4 inline-flex items-center">View Project →</span>
                                         </div>
                                     </div>
                                 </a>
 
-                                <a href="https://drive.google.com/file/d/14Ax8xfIertI1-7fmkyd18ppKATkkKK6N/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+                                <a href="https://drive.google.com/file/d/14Ax8xfIertI1-7fmkyd18ppKATkkKK6N/view?usp=sharing"
+                                   target="_blank" rel="noopener noreferrer"
                                    class="carousel-item creative-carousel absolute w-full rounded-2xl shadow-2xl hidden"
                                    style="max-width: 500px; left: 50%; transform: translateX(-50%);">
                                     <div class="project-card bg-gray-800 rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
                                         <div class="w-full h-64 overflow-hidden">
-                                            <img src="/images/projects/clarity.png" alt="Clarity" class="w-full h-full object-cover"/>
+                                            <img src="/images/projects/clarity.png" alt="Clarity"
+                                                 class="w-full h-full object-cover"/>
                                         </div>
                                         <div class="p-6 flex-1 flex flex-col">
                                             <h4 class="text-2xl font-bold mb-3">Clarity</h4>
-                                            <p class="text-gray-300 text-sm flex-1">An expressive typography booklet demonstrating attention to detail and visual communication skills.</p>
+                                            <p class="text-gray-300 text-sm flex-1">An expressive typography booklet
+                                                demonstrating attention to detail and visual communication skills.</p>
                                             <span class="text-purple-400 text-sm mt-4 inline-flex items-center">View Project →</span>
                                         </div>
                                     </div>
@@ -263,8 +321,12 @@
                             </div>
                         </div>
                         <div class="flex justify-center gap-4 mt-2">
-                            <button class="creative-prev-btn carousel-btn px-8 py-3 rounded-full font-semibold transition-all">← Previous</button>
-                            <button class="creative-next-btn carousel-btn px-8 py-3 rounded-full font-semibold transition-all">Next →</button>
+                            <button class="creative-prev-btn carousel-btn px-8 py-3 rounded-full font-semibold transition-all">
+                                ← Previous
+                            </button>
+                            <button class="creative-next-btn carousel-btn px-8 py-3 rounded-full font-semibold transition-all">
+                                Next →
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -285,29 +347,41 @@
                         <div class="contact-card p-6 rounded-2xl shadow-lg">
                             <h3 class="text-2xl font-bold mb-6">Get In Touch</h3>
                             <div class="space-y-4">
-                                <a href="mailto:vsenethong@gmail.com" class="contact-item flex items-center gap-4 p-4 rounded-lg transition-all hover:scale-105">
-                                    <div class="contact-icon w-12 h-12 rounded-full flex items-center justify-center text-2xl">📧</div>
+                                <a href="mailto:vsenethong@gmail.com"
+                                   class="contact-item flex items-center gap-4 p-4 rounded-lg transition-all hover:scale-105">
+                                    <div class="contact-icon w-12 h-12 rounded-full flex items-center justify-center text-2xl">
+                                        📧
+                                    </div>
                                     <div>
                                         <p class="font-semibold">Email</p>
                                         <p class="text-sm opacity-80">vsenethong@gmail.com</p>
                                     </div>
                                 </a>
-                                <a href="https://linkedin.com/in/vanessasenethong" target="_blank" rel="noopener noreferrer" class="contact-item flex items-center gap-4 p-4 rounded-lg transition-all hover:scale-105">
-                                    <div class="contact-icon w-12 h-12 rounded-full flex items-center justify-center text-2xl">💼</div>
+                                <a href="https://linkedin.com/in/vanessasenethong" target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="contact-item flex items-center gap-4 p-4 rounded-lg transition-all hover:scale-105">
+                                    <div class="contact-icon w-12 h-12 rounded-full flex items-center justify-center text-2xl">
+                                        💼
+                                    </div>
                                     <div>
                                         <p class="font-semibold">LinkedIn</p>
                                         <p class="text-sm opacity-80">linkedin.com/in/vanessasenethong</p>
                                     </div>
                                 </a>
-                                <a href="https://github.com/vsenethong" target="_blank" rel="noopener noreferrer" class="contact-item flex items-center gap-4 p-4 rounded-lg transition-all hover:scale-105">
-                                    <div class="contact-icon w-12 h-12 rounded-full flex items-center justify-center text-2xl">💻</div>
+                                <a href="https://github.com/vsenethong" target="_blank" rel="noopener noreferrer"
+                                   class="contact-item flex items-center gap-4 p-4 rounded-lg transition-all hover:scale-105">
+                                    <div class="contact-icon w-12 h-12 rounded-full flex items-center justify-center text-2xl">
+                                        💻
+                                    </div>
                                     <div>
                                         <p class="font-semibold">GitHub</p>
                                         <p class="text-sm opacity-80">github.com/vsenethong</p>
                                     </div>
                                 </a>
                                 <div class="contact-item flex items-center gap-4 p-4 rounded-lg">
-                                    <div class="contact-icon w-12 h-12 rounded-full flex items-center justify-center text-2xl">📍</div>
+                                    <div class="contact-icon w-12 h-12 rounded-full flex items-center justify-center text-2xl">
+                                        📍
+                                    </div>
                                     <div>
                                         <p class="font-semibold">Location</p>
                                         <p class="text-sm opacity-80">Boulder, CO</p>
@@ -340,7 +414,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="/images/Vanessa_Senethong_resume.docx" download class="download-btn block w-full py-4 px-6 rounded-full font-semibold text-center transition-all hover:scale-105">
+                        <a href="/images/Vanessa_Senethong_resume.docx" download
+                           class="download-btn block w-full py-4 px-6 rounded-full font-semibold text-center transition-all hover:scale-105">
                             Download Resume →
                         </a>
                         <p class="text-sm text-center opacity-70">

@@ -54,7 +54,7 @@ const lightModeConfig = {
   border_color: "#CDB7A2" // paleOak for borders
 };
 
-let currentTheme = 'dark';
+let currentTheme = 'light';
 let currentCodingIndex = 0;
 let currentCreativeIndex = 0;
 const codingCarouselItems = document.querySelectorAll('.coding-carousel');
@@ -74,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeTheme();
   initializeScrollEffects();
   initializeTypingEffects();
-  applyConfig(defaultConfig);
 });
 
 // Section Visibility Observer
@@ -264,46 +263,10 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Theme Toggle
-function initializeTheme() {
-  applyTheme();
-}
-
-document.getElementById('themeToggle')?.addEventListener('click', () => {
-  currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  applyTheme();
-
-  // Add transition effect
-  document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-});
-
-function applyTheme() {
-  if (currentTheme === 'light') {
-    applyConfig({
-      background_color: "#f8fafc",
-      surface_color: "#ffffff",
-      text_color: "#0f172a",
-      primary_action_color: "#8b5cf6",
-      secondary_action_color: "#6366f1",
-      card_background: "#ffffff",
-      card_text: "#1f2937"
-    });
-    document.getElementById('themeIcon').textContent = '☀️';
-    document.getElementById('themeText').textContent = 'Light Mode';
-  } else {
-    applyConfig({
-      ...defaultConfig,
-      card_background: "#1f2937",
-      card_text: "#f3f4f6"
-    });
-    document.getElementById('themeIcon').textContent = '🌙';
-    document.getElementById('themeText').textContent = 'Dark Mode';
-  }
-}
-
 // Scroll Effects
 function initializeScrollEffects() {
   const scrollContainer = document.querySelector('.scroll-container');
+  if (!scrollContainer) return;
   let lastScrollTop = 0;
 
   scrollContainer.addEventListener('scroll', () => {
@@ -318,157 +281,6 @@ function initializeScrollEffects() {
     }
 
     lastScrollTop = scrollTop;
-  });
-}
-
-// Apply Configuration
-function applyConfig(config) {
-  const baseSize = config.font_size || defaultConfig.font_size;
-  const customFont = config.font_family || defaultConfig.font_family;
-  const baseFontStack = 'system-ui, -apple-system, sans-serif';
-
-  // Body styles
-  document.body.style.backgroundColor = config.background_color || defaultConfig.background_color;
-  document.body.style.color = config.text_color || defaultConfig.text_color;
-  document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
-  document.body.style.fontSize = `${baseSize}px`;
-
-  // Sidebar
-  const sidebar = document.getElementById('sidebar');
-  if (sidebar) {
-    sidebar.style.backgroundColor = config.surface_color || defaultConfig.surface_color;
-    sidebar.style.transition = 'all 0.3s ease';
-  }
-
-  // Sidebar elements
-  const sidebarTitle = document.getElementById('sidebar-title');
-  if (sidebarTitle) {
-    sidebarTitle.style.color = config.text_color || defaultConfig.text_color;
-  }
-
-  const closeSidebar = document.getElementById('closeSidebar');
-  if (closeSidebar) {
-    closeSidebar.style.color = config.text_color || defaultConfig.text_color;
-  }
-
-  // Navigation links
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.style.color = config.text_color || defaultConfig.text_color;
-  });
-
-  // Theme toggle button
-  const themeToggle = document.getElementById('themeToggle');
-  if (themeToggle) {
-    themeToggle.style.backgroundColor = config.primary_action_color || defaultConfig.primary_action_color;
-    themeToggle.style.color = '#ffffff';
-  }
-
-  // Menu toggle
-  const menuToggle = document.getElementById('menuToggle');
-  if (menuToggle) {
-    menuToggle.style.color = config.text_color || defaultConfig.text_color;
-  }
-
-  // Site title
-  const siteTitle = document.getElementById('site-title');
-  if (siteTitle) {
-    siteTitle.textContent = config.site_title || defaultConfig.site_title;
-    siteTitle.style.fontSize = `${baseSize * 3.75}px`;
-    siteTitle.style.color = config.text_color || defaultConfig.text_color;
-    siteTitle.style.fontFamily = `${customFont}, ${baseFontStack}`;
-  }
-
-  // Tagline
-  const tagline = document.getElementById('tagline');
-  if (tagline) {
-    tagline.textContent = config.tagline || defaultConfig.tagline;
-    tagline.style.fontSize = `${baseSize * 1.5}px`;
-    tagline.style.color = config.text_color || defaultConfig.text_color;
-    tagline.style.fontFamily = `${customFont}, ${baseFontStack}`;
-  }
-
-  // Scroll buttons
-  document.querySelectorAll('.scroll-btn').forEach(btn => {
-    btn.style.backgroundColor = config.primary_action_color || defaultConfig.primary_action_color;
-    btn.style.color = '#ffffff';
-    btn.style.fontFamily = `${customFont}, ${baseFontStack}`;
-  });
-
-  // About section
-  const aboutHeading = document.getElementById('about-heading');
-  if (aboutHeading) {
-    // Only update if it's not the typing text
-    const storedText = aboutHeading.getAttribute('data-text');
-    if (!storedText) {
-      aboutHeading.textContent = config.about_heading || defaultConfig.about_heading;
-    }
-    aboutHeading.style.fontSize = `${baseSize * 3.125}px`;
-    aboutHeading.style.color = config.text_color || defaultConfig.text_color;
-    aboutHeading.style.fontFamily = `${customFont}, ${baseFontStack}`;
-  }
-
-  const aboutText = document.getElementById('about-text');
-  if (aboutText) {
-    aboutText.textContent = config.about_text || defaultConfig.about_text;
-    aboutText.style.fontSize = `${baseSize * 1.125}px`;
-    aboutText.style.color = config.text_color || defaultConfig.text_color;
-    aboutText.style.fontFamily = `${customFont}, ${baseFontStack}`;
-  }
-
-  // Skill badges
-  document.querySelectorAll('.skill-badge').forEach(badge => {
-    badge.style.backgroundColor = config.secondary_action_color || defaultConfig.secondary_action_color;
-    badge.style.color = '#ffffff';
-    badge.style.fontFamily = `${customFont}, ${baseFontStack}`;
-  });
-
-  // Projects section
-  const projectsHeading = document.getElementById('projects-heading');
-  if (projectsHeading) {
-    projectsHeading.textContent = config.projects_heading || defaultConfig.projects_heading;
-    projectsHeading.style.fontSize = `${baseSize * 3.125}px`;
-    projectsHeading.style.color = config.text_color || defaultConfig.text_color;
-    projectsHeading.style.fontFamily = `${customFont}, ${baseFontStack}`;
-  }
-
-  // Carousel buttons
-  document.querySelectorAll('.carousel-btn').forEach(btn => {
-    btn.style.backgroundColor = config.secondary_action_color || defaultConfig.secondary_action_color;
-    btn.style.color = '#ffffff';
-    btn.style.fontFamily = `${customFont}, ${baseFontStack}`;
-  });
-
-  // Project cards - apply theme
-  document.querySelectorAll('.project-card').forEach(card => {
-    card.style.backgroundColor = config.card_background || '#1f2937';
-    card.style.color = config.card_text || '#f3f4f6';
-  });
-
-  document.querySelectorAll('.project-card p').forEach(p => {
-    if (currentTheme === 'light') {
-      p.style.color = '#4b5563'; // gray-600 for light mode
-    } else {
-      p.style.color = '#d1d5db'; // gray-300 for dark mode
-    }
-  });
-
-  // Contact cards
-  document.querySelectorAll('.contact-card').forEach(card => {
-    if (currentTheme === 'light') {
-      card.style.background = 'rgba(255, 255, 255, 0.9)';
-      card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    } else {
-      card.style.background = 'rgba(31, 41, 55, 0.5)';
-      card.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-    }
-  });
-
-  document.querySelectorAll('.contact-item, .stat-card').forEach(item => {
-    if (currentTheme === 'light') {
-      item.style.background = 'rgba(99, 102, 241, 0.05)';
-    } else {
-      item.style.background = 'rgba(99, 102, 241, 0.1)';
-    }
   });
 }
 
