@@ -398,7 +398,8 @@ html {
 #connect-heading {
     min-height: 1.2em;
     display: inline-block;
-    margin-left: 2rem;
+    width: 100%;
+    text-align: center;
 }
 
 /* Connect Section Styles */
@@ -506,4 +507,238 @@ html {
   100% {
     transform: translateX(0);
   }
+}
+
+/* Custom Color Palette Variables */
+:root {
+  /* Logo Blues */
+  --cloudy-sky: #5697d3;
+  --bright-ocean: #418cc7;
+  --blue-grey: #5a9cd3;
+  --vanilla-custard: #ecdca0;
+  --baby-blue-ice: #90b9e2;
+
+  /* Headshot Neutrals */
+  --dust-grey: #D4CCC7;
+  --dark-coffee: #3D2824;
+  --chocolate-plum: #5B4747;
+  --pale-oak: #CDB7A2;
+  --mauve-bark: #7D5D51;
+
+  /* Dark Mode Defaults */
+  --bg-primary: #1a1412;
+  --bg-surface: #3D2824;
+  --text-primary: #ecdca0;
+  --text-secondary: #D4CCC7;
+  --action-primary: #5697d3;
+  --action-secondary: #418cc7;
+}
+
+/* Light Mode Override */
+[data-theme="light"] {
+  --bg-primary: #faf8f6;
+  --bg-surface: #ffffff;
+  --text-primary: #3D2824;
+  --text-secondary: #5B4747;
+  --action-primary: #418cc7;
+  --action-secondary: #5697d3;
+}
+
+/* Enhanced Navigation Link Hover with Custom Colors */
+.nav-link::before {
+  background: rgba(86, 151, 211, 0.25); /* cloudySky */
+}
+
+.nav-link:hover {
+  transform: translateX(5px);
+  color: var(--baby-blue-ice);
+}
+
+/* Scrollbar with Custom Colors */
+.scroll-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--cloudy-sky), var(--bright-ocean));
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--bright-ocean), var(--blue-grey));
+}
+
+/* Skill Badge Enhancements */
+.skill-badge {
+  background: linear-gradient(135deg, var(--bright-ocean), var(--cloudy-sky));
+  box-shadow: 0 2px 8px rgba(86, 151, 211, 0.3);
+}
+
+.skill-badge:hover {
+  box-shadow: 0 6px 16px rgba(86, 151, 211, 0.5);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Project Card Hover Enhancement */
+.project-card {
+  border: 1px solid rgba(86, 151, 211, 0.2);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: var(--cloudy-sky);
+  box-shadow: 0 20px 40px rgba(86, 151, 211, 0.2);
+}
+
+/* Tech Stack Badge Styling */
+.project-card .text-xs {
+  transition: all 0.2s ease;
+}
+
+.project-card .text-xs:hover {
+  transform: scale(1.05);
+}
+
+/* Contact Card Accent Border */
+.contact-card {
+  border-left: 4px solid var(--cloudy-sky);
+}
+
+.contact-card:hover {
+  border-left-color: var(--bright-ocean);
+}
+
+/* Contact Item Hover */
+.contact-item:hover {
+  background: rgba(90, 156, 211, 0.2);
+  border-left: 3px solid var(--baby-blue-ice);
+  padding-left: calc(1rem - 3px);
+}
+
+/* Download Button Enhanced */
+.download-btn {
+  background: linear-gradient(135deg, var(--cloudy-sky), var(--baby-blue-ice));
+  box-shadow: 0 4px 12px rgba(86, 151, 211, 0.3);
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  box-shadow: 0 8px 24px rgba(86, 151, 211, 0.5);
+  transform: scale(1.02) translateY(-2px);
+}
+
+/* Stat Card Color Accents */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--cloudy-sky), var(--bright-ocean));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+/* Gallery Item Border Enhancement */
+.gallery-item {
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 1rem;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--cloudy-sky), var(--bright-ocean), var(--baby-blue-ice));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::before {
+  opacity: 1;
+}
+
+/* Typing Cursor Color */
+.typing::after {
+  color: var(--baby-blue-ice);
+}
+
+/* Section Title Accents */
+h2[id$="-heading"] {
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2[id$="-heading"]::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cloudy-sky), var(--bright-ocean));
+  border-radius: 2px;
+}
+
+/* Loading State with Custom Colors */
+.loading {
+  background: linear-gradient(90deg,
+    var(--cloudy-sky) 0%,
+    var(--bright-ocean) 50%,
+    var(--cloudy-sky) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Accent Highlights for Links */
+a:not(.nav-link):not(.carousel-btn):not(.scroll-btn):not(.download-btn) {
+  color: var(--bright-ocean);
+  transition: color 0.2s ease;
+}
+
+a:not(.nav-link):not(.carousel-btn):not(.scroll-btn):not(.download-btn):hover {
+  color: var(--baby-blue-ice);
+  text-decoration-color: var(--baby-blue-ice);
+}
+
+/* Selection Color */
+::selection {
+  background-color: var(--cloudy-sky);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--cloudy-sky);
+  color: white;
+}
+
+/* Focus States for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--bright-ocean);
+  outline-offset: 2px;
+}
+
+/* Button Focus States */
+button:focus-visible,
+.carousel-btn:focus-visible,
+.scroll-btn:focus-visible {
+  outline: 2px solid var(--baby-blue-ice);
+  outline-offset: 3px;
 }
